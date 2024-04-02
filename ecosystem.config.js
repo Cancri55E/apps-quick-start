@@ -10,7 +10,7 @@ module.exports = {
     env_development: {
        NODE_ENV: "development",
        PORT: "4949",
-       BASE_URL: "http://164.92.204.181:4949"
+       BASE_URL: "https://wowukrainizer.net"
     }
   }]
 }
