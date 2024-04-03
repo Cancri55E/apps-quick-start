@@ -12,8 +12,8 @@
       <div class="row"> 
 
         <section class="conversations">
-          <div class="conversation conversations-header"></div>
-          <div class="conversation conversations-body">
+          <div class="conversations-header"></div>
+          <div class="conversations-body">
             <div class="conversation conversation-active">
               <div class="conversation-image" style="background-image: url(https://wow.zamimg.com/images/wow/icons/large/inv_misc_tournaments_banner_orc.jpg);"></div>
               <div class="conversation-summary">
@@ -75,5 +75,17 @@
         </section>
       </div>
     </div>
+    <script>
+      const conversations = document.querySelectorAll('.conversation');
+      conversations.forEach(conversation => {
+        conversation.addEventListener('click', () => {
+          // Remove the 'conversation-active' class from all conversations
+          conversations.forEach(c => c.classList.remove('conversation-active'));
+  
+          // Add the 'conversation-active' class to the clicked conversation
+          conversation.classList.add('conversation-active');
+        });
+      });
+    </script>
   </body>
 </html>
