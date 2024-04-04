@@ -1,89 +1,140 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./dialog.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-</head>
+  <head>
+    <link rel="stylesheet" href="./dialog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+  </head>
   <body>
-    <div class="container-fluid">
-      <div class="row"> 
+    <div class="container">
+      <section class="conversations">
+        <div class="conversations-header">
+          <button class="collapse-btn">&#9776;</button>
+        </div>
+        <div class="conversations-body">
+          <div class="conversation conversation-active">
+            <div
+              class="conversation-image"
+              style="
+                background-image: url(https://wow.zamimg.com/images/wow/icons/large/inv_misc_tournaments_banner_orc.jpg);
+              "
+            ></div>
+            <div class="conversation-summary">
+              <p class="name">Twilight Skies (2)</p>
+              <p class="link">
+                https://warcraft.wiki.gg/wiki/Twilight_Skies_(2)
+              </p>
+            </div>
+            <div
+              class="conversation-expansion-image"
+              style="
+                background-image: url(https://warcraft.wiki.gg/images/thumb/6/61/Dragonflight-Icon-Inline.png/48px-Dragonflight-Icon-Inline.png);
+              "
+            ></div>
+          </div>
 
-        <section class="conversations">
-          <div class="conversations-header"></div>
-          <div class="conversations-body">
-            <div class="conversation conversation-active">
-              <div class="conversation-image" style="background-image: url(https://wow.zamimg.com/images/wow/icons/large/inv_misc_tournaments_banner_orc.jpg);"></div>
-              <div class="conversation-summary">
-                <p class="name">Twilight Skies (2)</p>
-                <p class="link">https://warcraft.wiki.gg/wiki/Twilight_Skies_(2)</p>
-              </div>
-              <div class="conversation-expansion-image" style="background-image: url(https://warcraft.wiki.gg/images/thumb/6/61/Dragonflight-Icon-Inline.png/48px-Dragonflight-Icon-Inline.png);"></div>
+          <div class="conversation">
+            <div
+              class="conversation-image"
+              style="
+                background-image: url(https://wow.zamimg.com/images/wow/icons/large/inv_misc_tournaments_banner_human.jpg);
+              "
+            ></div>
+            <div class="conversation-summary">
+              <p class="name">Dave Corlew</p>
+              <p class="link">
+                https://warcraft.wiki.gg/wiki/Twilight_Skies_(2)https://warcraft.wiki.gg/wiki/Twilight_Skies_(2)
+              </p>
             </div>
-    
-            <div class="conversation">
-              <div class="conversation-image" style="background-image: url(https://wow.zamimg.com/images/wow/icons/large/inv_misc_tournaments_banner_human.jpg);">
-              </div>
-              <div class="conversation-summary">
-                <p class="name">Dave Corlew</p>
-                <p class="link">https://warcraft.wiki.gg/wiki/Twilight_Skies_(2)</p>
-              </div>
-              <div class="conversation-expansion-image" style="background-image: url(https://warcraft.wiki.gg/images/e/ef/Cata-Logo-Small.png);">
-            </div>
+            <div
+              class="conversation-expansion-image"
+              style="
+                background-image: url(https://warcraft.wiki.gg/images/e/ef/Cata-Logo-Small.png);
+              "
+            ></div>
           </div>
-        </section>
-
-        <section class="conversation-messages">
-          <div class="conversation-messages-header">
-            <i class="icon fa fa-comments-o" aria-hidden="true"></i>
-            <p class="name">Twilight Skies (2)</p>
+        </div>
+      </section>
+      <section class="conversation-messages">
+        <div class="conversation-messages-header">
+          <i class="icon fa fa-comments-o" aria-hidden="true"></i>
+          <p class="name">Twilight Skies (2)</p>
+        </div>
+        <div class="conversation-messages-list">
+          <div class="message">
+            <p class="active-text text-say">
+              <span>Loudspeaker says:</span> Zeppelin arrival in six minutes.
+            </p>
           </div>
-          <div class="conversation-messages-list">
-            <div class="message">
-                <p class="active-text text-say"> <span>Loudspeaker says:</span> Zeppelin arrival in six minutes. </p>
-            </div>
-            <div class="message text-say">
-              <p> <span>Hobart Grapplehammer says:</span> Boarding the Spear of Durotar, are we? You are to be envied, Horde marine!</p>
-            </div>
-            <div class="message text-say">
-              <p> <span> Hobart Grapplehammer says:</span> You are about to rip the horizon a new sky-hole aboard a sensational new era in aeronautical innovation.</p>
-            </div>
-            <div class="message text-say">
-              <p> <span>Hobart Grapplehammer says:</span> It's been recklessly engineered with a merciless disregard for both budgetary concerns and those cumbersome, inefficient "laws of physics."</p>
-            </div>
-            <div class="message text-say">
-              <p> <span>Assistant Greely says:</span> Not a penny was wasted on comfort or personal safety!</p>
-            </div>
-            <div class="message text-yell">
-              <p> <span>Garrosh Hellscream yells:</span> GET!</p>
-            </div>
-            <div class="message text-yell">
-              <p> <span>Garrosh Hellscream yells:</span> OFF!</p>
-            </div>
-            <div class="message text-yell">
-              <p> <span>Garrosh Hellscream yells:</span> MY!</p>
-            </div>
-            <div class="message text-say">
-              <p> <span>Kor'kron Air Marine says:</span> The Warchief's zeppelin is in flames! It's going down!</p>
-            </div>
-            <div class="message text-yell">
-              <p> <span>Garrosh Hellscream yells:</span> SHIP!</p>
-            </div>
+          <div class="message text-say">
+            <p>
+              <span>Hobart Grapplehammer says:</span> Boarding the Spear of
+              Durotar, are we? You are to be envied, Horde marine!
+            </p>
           </div>
-        </section>
-      </div>
+          <div class="message text-say">
+            <p>
+              <span> Hobart Grapplehammer says:</span> You are about to rip the
+              horizon a new sky-hole aboard a sensational new era in
+              aeronautical innovation.
+            </p>
+          </div>
+          <div class="message text-say">
+            <p>
+              <span>Hobart Grapplehammer says:</span> It's been recklessly
+              engineered with a merciless disregard for both budgetary concerns
+              and those cumbersome, inefficient "laws of physics."
+            </p>
+          </div>
+          <div class="message text-say">
+            <p>
+              <span>Assistant Greely says:</span> Not a penny was wasted on
+              comfort or personal safety!
+            </p>
+          </div>
+          <div class="message text-yell">
+            <p><span>Garrosh Hellscream yells:</span> GET!</p>
+          </div>
+          <div class="message text-yell">
+            <p><span>Garrosh Hellscream yells:</span> OFF!</p>
+          </div>
+          <div class="message text-yell">
+            <p><span>Garrosh Hellscream yells:</span> MY!</p>
+          </div>
+          <div class="message text-say">
+            <p>
+              <span>Kor'kron Air Marine says:</span> The Warchief's zeppelin is
+              in flames! It's going down!
+            </p>
+          </div>
+          <div class="message text-yell">
+            <p><span>Garrosh Hellscream yells:</span> SHIP!</p>
+          </div>
+        </div>
+      </section>
     </div>
     <script>
-      const conversations = document.querySelectorAll('.conversation');
-      conversations.forEach(conversation => {
-        conversation.addEventListener('click', () => {
-          // Remove the 'conversation-active' class from all conversations
-          conversations.forEach(c => c.classList.remove('conversation-active'));
-  
-          // Add the 'conversation-active' class to the clicked conversation
-          conversation.classList.add('conversation-active');
+      const collapseBtn = document.querySelector(".collapse-btn");
+      const conversations = document.querySelectorAll(".conversation");
+      const conversationsNode = document.querySelector(".conversations");
+      conversations.forEach((conversation) => {
+        conversation.addEventListener("click", () => {
+          conversations.forEach((c) =>
+            c.classList.remove("conversation-active")
+          );
+          conversation.classList.add("conversation-active");
+        });
+      });
+      collapseBtn.addEventListener("click", () => {
+        conversationsNode.classList.toggle("collapsed");
+        conversations.forEach((conversation) => {
+          console.log(conversation.classList.toggle("collapsed"));
         });
       });
     </script>
