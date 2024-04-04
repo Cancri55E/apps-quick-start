@@ -1,108 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Getting Started | Project menu</title>
-
-    <script>
-      function showLoader() {
-        document.getElementById('loading').classList.remove('invisible');
-        document.getElementById('result').innerHTML = '';
-      }
-
-      function showResult(res) {
-        document.getElementById('loading').classList.add('invisible');
-        document.getElementById('result').innerHTML = res;
-      }
-
-      function getContextAction() {
-        showLoader();
-
-        AP.getContext(function(res) {
-          showResult(JSON.stringify(res, null, 2));
-        });
-      }
-
-      function getJwtTokenAction() {
-        showLoader();
-
-        AP.getJwtToken(function(res) {
-          showResult(JSON.stringify(res, null, 2));
-        });
-      }
-
-      function showUserDetailsAction() {
-        showLoader();
-
-        AP.getJwtToken(function(token) {
-          fetch('/user?jwtToken=' + token)
-            .then(response => response.json())
-            .then(data => showResult(JSON.stringify(data, null, 2)));
-        });
-      }
-    </script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/styles.css">
-    </script>
-
-    <script src="https://cdn.crowdin.com/apps/dist/iframe.js"></script>
-
-</head>
-<body>
-<main>
-    <div class="px-4 my-5 text-center">
-        <h1 class="display-5 fw-bold">Hello world!</h1>
-
-        <p class="lead">This is a sample page of the project menu module in the Crowdin Getting Started App.</p>
-    </div>
-    <div class="b-example-divider"></div>
-
-    <% if (isAuthorized) { %>
-        <div class="container my-5">
-            <div class="alert alert-primary" role="alert">
-                Crowdin user is authorized.
-            </div>
-        </div>
-    <% } else { %>
-        <div class="container my-5">
-            <div class="alert alert-warning" role="alert">
-                Crowdin user is unauthorized.
-            </div>
-        </div>
-    <% } %>
-
-    <div class="px-4 my-5 text-center">
-        <div class="col-lg-6 mx-auto">
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <% if (isAuthorized) { %>
-                    <a class="btn btn-primary" type="button" onclick="showUserDetailsAction()">
-                        Show user details
-                    </a>
-                    <a class="btn btn-outline-secondary" type="button" onclick="getJwtTokenAction()">
-                        AP.getJwtToken()
-                    </a>
-                <% } %>
-                <a class="btn btn-outline-secondary" type="button" onclick="getContextAction()">
-                    AP.getContext()
-                </a>
-            </div>
-        </div>
-    </div>
+  <head>
+    <link rel="stylesheet" href="/css/dialog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div id="loading" class="spinner-grow invisible" role="status">
-            <span class="visually-hidden">Loading...</span>
+      <section class="conversations">
+        <div class="conversations-header">
+          <button class="collapse-btn">&#9776;</button>
         </div>
-        <pre id="result" class="code"></pre>
+        <div class="conversations-body">
+          <% conversations.forEach(conversation => { %>
+          <div
+            class="conversation <%= conversation.active ? 'conversation-active' : '' %>"
+          >
+            <div
+              class="conversation-image"
+              style="background-image: url(<%= conversation.image %>)"
+            ></div>
+            <div class="conversation-summary">
+              <p class="name"><%= conversation.name %></p>
+              <p class="link"><%= conversation.link %></p>
+            </div>
+            <div
+              class="conversation-expansion-image"
+              style="background-image: url(<%= conversation.expansionImage %>)"
+            ></div>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+      <section class="conversation-messages">
+        <div class="conversation-messages-header">
+          <i class="icon fa fa-comments-o" aria-hidden="true"></i>
+          <p class="name"><%= currentConversation.name %></p>
+        </div>
+        <div class="conversation-messages-list">
+          <% currentConversation.messages.forEach(message => { %>
+          <div class="message <%= message.type %>">
+            <p>
+              <span
+                ><%= message.sender %> <%= message.type === 'text-say' ? 'says:'
+                : 'yells:' %></span
+              >
+              <%= message.text %>
+            </p>
+          </div>
+          <% }) %>
+        </div>
+      </section>
     </div>
-</main>
-</body>
+    <script>
+      const collapseBtn = document.querySelector(".collapse-btn");
+      const conversations = document.querySelectorAll(".conversation");
+      const conversationsNode = document.querySelector(".conversations");
+      conversations.forEach((conversation) => {
+        conversation.addEventListener("click", () => {
+          conversations.forEach((c) =>
+            c.classList.remove("conversation-active")
+          );
+          conversation.classList.add("conversation-active");
+
+          // Update the currentConversation
+          //   const clickedConversation = <%= conversations %>
+          //     .find(c => c.name === conversation.querySelector(".name").textContent);
+          //   <%= currentConversation %> = clickedConversation;
+        });
+      });
+      collapseBtn.addEventListener("click", () => {
+        conversationsNode.classList.toggle("collapsed");
+        conversations.forEach((conversation) => {
+          console.log(conversation.classList.toggle("collapsed"));
+        });
+      });
+    </script>
+  </body>
 </html>
