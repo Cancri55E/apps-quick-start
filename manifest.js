@@ -17,5 +17,13 @@ module.exports = {
         url: "/project-menu"
       }
     ],
+    "editor-translations-panel": [
+      {
+        key: "dialog-translation-module",
+        name: "Dialog Translations Panel",
+        modes: ["translate"],
+        url: "/project-menu"
+      }
+    ]
   }
 }
