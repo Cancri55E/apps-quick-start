@@ -12,5 +12,9 @@ module.exports = {
        PORT: "4949",
        BASE_URL: "https://wowukrainizer.net"
     }
+  },
+  {
+    name   : "crowdin-subdomain-1",
+    script : "./subdomain.js"
   }]
 }
